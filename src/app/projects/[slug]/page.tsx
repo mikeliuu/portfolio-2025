@@ -41,7 +41,7 @@ export default function ProjectPage({ params: { slug } }: PageProps) {
 	const { year, client, tag, name, description, url, thumbnailUrl, mediaUrl } =
 		project.metadata;
 
-	const projectInfo = [
+	const defaultInfo = [
 		{
 			label: "Year",
 			value: year,
@@ -55,6 +55,10 @@ export default function ProjectPage({ params: { slug } }: PageProps) {
 			value: tag,
 		},
 	];
+
+	const projectInfo = defaultInfo.filter(
+		(info) => info.value && info.value.trim() !== ""
+	);
 
 	const navigation = [
 		{
